@@ -1,25 +1,12 @@
 
-public class RaceCar {
+public class RaceCar extends Car {
 	
-	public int speed;
-	public final int ori_speed;
-	public int last_unit;
-	public int unit;
-	public boolean damaged;
-	public boolean last_damaged;
-	public int strength;
-	public int lap;
-	public int number;
-	public boolean ifpit;
-	public boolean departfrompit;
-
-	
-	public RaceCar(int speed, int strength) { //car parameter
+	public RaceCar(int speed, int strength) { 
 		if(speed>55){
 			ori_speed=55;
 		}
-		else if(speed<1){
-			ori_speed=1;
+		else if(speed<30){
+			ori_speed=30;
 		}
 		else{
 			this.ori_speed=speed;
@@ -45,15 +32,8 @@ public class RaceCar {
 		this(40,3);
 	}
 	
-	public int getLocation() {
-		return lap*100+unit;
-	}
-	
 	public String toString() {
 		return "RaceCar"+ori_speed+"/"+strength;
 	}
 	
-	public boolean IfDamage(){
-		return damaged;
-	}
 }

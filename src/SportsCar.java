@@ -1,16 +1,17 @@
 
 public class SportsCar extends RaceCar {
 
-	public SportsCar(int speed, int strength) { //car parameter
+	public SportsCar(int speed, int strength) {
 		if(speed>45){
-			this.speed=45;
+			ori_speed=45;
 		}
 		else if(speed<20){
-			this.speed=20;
+			ori_speed=20;
 		}
 		else{
-			this.speed=speed;
+			this.ori_speed=speed;
 		}
+		this.speed=ori_speed;
 		if(strength>3){
 			strength=3;
 		}
