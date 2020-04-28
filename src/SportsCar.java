@@ -30,4 +30,7 @@ public class SportsCar extends RaceCar {
 	public SportsCar() {
 		this(30,2);
 	}
+	public String toString() {
+		return "FormulaOne" + speed+"/"+strength;
+	}
 }
