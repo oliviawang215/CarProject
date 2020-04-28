@@ -38,19 +38,19 @@ public class MultiSimulation {
 		for (int i = 0; i < numSimu; i++) {
 			RaceTrack track = new RaceTrack();
 			RaceCar[] cars = new RaceCar[numCars];
-			for (int j = 0; j < numCars; j++) {
-				int randomSpeed = r.nextInt(26)+30;
-				int randomStrength = r.nextInt(3)+2;
+			for (int j = 0; j < numCars; j++) {//generate new cars with random speed and strength
+				int randomSpeed = r.nextInt(26)+30; 
+				int randomStrength = r.nextInt(3)+2; 
 				cars[j] = new RaceCar(randomSpeed,randomStrength);
 			}
 			track.setCars(cars);
 			track.runSimu();
-			scoreRecords[i] = track.score;
-			carsData[i] = track.carsData;
+			scoreRecords[i] = track.score; //store score for each run
+			carsData[i] = track.carsData; //store cardata for each run
 		}
 		int index = 0;
 		int max = 0;
-		for (int i = 0; i < numSimu; i++) {			
+		for (int i = 0; i < numSimu; i++) {	//compare to get the highest score	
 			//System.out.println(scoreRecords[i]);
 			if (scoreRecords[i]>max) {
 				max = scoreRecords[i];
