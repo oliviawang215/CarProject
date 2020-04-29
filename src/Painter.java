@@ -63,9 +63,21 @@ public class Painter implements ActionListener, MouseListener, KeyListener
 	
 	public static void main(String[] args) {
 		track = new RaceTrack();
-		track.setCars(SimulationDriver.getSomeRaceCars());
+		RaceTrack track = new RaceTrack();
+		RaceCar[] allRaceCars = SimulationDriver.getSomeRaceCars();
+		FormulaOne[] allFormulaOnes = SimulationDriver.getSomeFormulaOnes();
+		SportsCar[] allSportsCars = SimulationDriver.getSomeSportsCars();
+		int numCars=SimulationDriver.numRaceCars+SimulationDriver.numFormulaOnes+SimulationDriver.numSportsCars;
+		Car[] allCars= new Car[numCars];
+		for(int i=0;i<SimulationDriver.numRaceCars;i++) 
+			allCars[i] = allRaceCars[i];
+		for(int i=0;i<SimulationDriver.numFormulaOnes;i++) 
+			allCars[i+SimulationDriver.numRaceCars] = allFormulaOnes[i];
+		for(int i=0;i<SimulationDriver.numSportsCars;i++) 
+			allCars[i+SimulationDriver.numRaceCars+SimulationDriver.numFormulaOnes] = allSportsCars[i];
+		track.setCars(allCars);
 		painter=new Painter();
-		createCar(SimulationDriver.numCars);
+		createCar(numCars);
 	}
 	
 	
