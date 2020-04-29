@@ -18,8 +18,9 @@ public class SimulationDriver {
 	public static int numRaceCars =-1;
 	public static int numFormulaOnes =-1;
 	public static int numSportsCars =-1;
-	public static Car[] allCars = new Car[] {};
+	public static Car[] allCars ;
 	public static int numCars;
+	public static Scanner consoleRdr = new Scanner(System.in);
 		
 	/**
 	 * Sets up and runs a RaceTrack using the helper method getSomeRaceCars(). 
@@ -33,6 +34,7 @@ public class SimulationDriver {
 		FormulaOne[] allFormulaOnes = getSomeFormulaOnes();
 		SportsCar[] allSportsCars = getSomeSportsCars();
 		numCars=numRaceCars+numFormulaOnes+numSportsCars;
+		allCars= new Car[numCars];
 		for(int i=0;i<numRaceCars;i++) 
 			allCars[i] = allRaceCars[i];
 		for(int i=0;i<numFormulaOnes;i++) 
@@ -51,7 +53,6 @@ public class SimulationDriver {
 	 */
 	public static RaceCar[] getSomeRaceCars() {
 		System.out.println("Welcome to the Need for Speed Simulator!\n\nFor each RaceCar: enter the speed and strength separated by a space.\nIf you want to construct a default RaceCar, enter " + DEFAULT_STAT_VAL + " for the speed and strength.");
-		Scanner consoleRdr = new Scanner(System.in);
 		boolean carNumInvalid = true;
 		// loop until the user provides a valid no. of cars (nonnegative integer) 
 		do {
@@ -119,22 +120,21 @@ public class SimulationDriver {
 			} while (carInvalid);		
 		}
 //		consoleRdr.next();
-		consoleRdr.close();
 		return cars;
 	}
 	public static FormulaOne[] getSomeFormulaOnes() {
 		System.out.println("\nFor each FormulaOne: enter the speed and strength separated by a space.\nIf you want to construct a default RaceCar, enter " + DEFAULT_STAT_VAL + " for the speed and strength.");
-		Scanner consoleRdr1 = new Scanner(System.in);
 		boolean carNumInvalid = true;
 		// loop until the user provides a valid no. of cars (nonnegative integer) 
 		do {
 			System.out.print("How many FormulaOnes would you like to enter in the race? ");
 			try { // try to get no. of cars as integer 
-				numFormulaOnes = consoleRdr1.nextInt();
+				if(consoleRdr.hasNext())
+					numFormulaOnes = consoleRdr.nextInt();
 			} 
 			catch (InputMismatchException e) { // if the input is not an integer, clear the scanner buffer and continue to keep looping 
 				System.out.println("Please enter a valid integer.");
-				consoleRdr1.nextLine();
+				consoleRdr.nextLine();
 				continue;
 			}
 			if (numFormulaOnes >= 0) { // if nonnegative integer, then we've got a valid input (mark loop end)  
@@ -154,12 +154,12 @@ public class SimulationDriver {
 				int speed = -1;
 				int strength = -1;
 				try { // try to get 2 integers 
-					speed = consoleRdr1.nextInt();
-					strength = consoleRdr1.nextInt();
+					speed = consoleRdr.nextInt();
+					strength = consoleRdr.nextInt();
 				}
 				catch (InputMismatchException e) { // if either is not an integer, clear the scanner buffer and continue to keep looping to read input 
 					System.out.println("The strength and speed should be valid integers.");
-					consoleRdr1.nextLine();
+					consoleRdr.nextLine();
 					continue;
 				}
 					
@@ -191,12 +191,10 @@ public class SimulationDriver {
 				
 			} while (carInvalid);		
 		}
-		consoleRdr1.close();
 		return cars;
 	}
 	public static SportsCar[] getSomeSportsCars() {
 		System.out.println("\nFor each SportsCar: enter the speed and strength separated by a space.\nIf you want to construct a default RaceCar, enter " + DEFAULT_STAT_VAL + " for the speed and strength.");
-		Scanner consoleRdr = new Scanner(System.in);
 		boolean carNumInvalid = true;
 		// loop until the user provides a valid no. of cars (nonnegative integer) 
 		do {
