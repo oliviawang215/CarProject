@@ -1,5 +1,5 @@
 public class FinishLine {
-	public static Car[] rank=new RaceCar[RaceTrack.numCars];
+	public static RaceCar[] rank=new RaceCar[RaceTrack.numCars];
 	static int temp=0;
 	
 	public static void enterFinishLine(int i) { // TODO you can add parameters here!
