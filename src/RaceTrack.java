@@ -4,8 +4,7 @@ public class RaceTrack {
 	 * DO NOT REMOVE THIS - you should be using this to log this track's events in part B. For more see the assignment PDF / documentation for TrackLoggerA.java
 	 */
 	// private TrackLoggerA logger;
-	public static RaceCar[] cars;
-	public static FormulaOne[] F1cars;
+	public static Car[] cars;
 	public int tick=0;
 	public static int numCars;
 	public static int ori_numCars;
@@ -19,16 +18,7 @@ public class RaceTrack {
 		// logger = new TrackLoggerA(); // DO NOT REMOVE THIS LINE
 	}
 	
-	public void setF1Cars(FormulaOne[] F1cars) {
-		cars= F1cars;
-		ori_numCars=cars.length;
-		numCars=ori_numCars;
-		for(int i=0;i<numCars;i++){
-			cars[i].number=i+1;
-		}
-	}
-	
-	public void setCars(RaceCar[] raceCars) { //cars
+	public void setCars(Car[] raceCars) { //cars
 		cars=raceCars;
 		ori_numCars=cars.length;
 		numCars=ori_numCars;
