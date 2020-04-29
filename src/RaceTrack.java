@@ -95,7 +95,6 @@ public class RaceTrack {
 		for(int i=0;i<numCars;i++) {
 			if(cars[i]!=null&&cars[i].lap>10){
 				FinishLine.enterFinishLine(i);
-				System.out.println("You scored "+calculateScore()+" points.");
 				i--;
 			}
 		}
@@ -108,11 +107,6 @@ public class RaceTrack {
 		return false;
 	}
 	
-	
-	public int calculateScore() {
-		return 1000-tick*20+150*ori_numCars;
-	}
-	
 	public void run(){
 		for (int i = 0; i < cars.length; i++) {
 	    	int iplus = i+1;
@@ -121,7 +115,6 @@ public class RaceTrack {
 		while(FinishLine.finished()==false){
 			tick();
 		}
-		score = calculateScore();
 	    
 	}
 	
@@ -192,7 +185,6 @@ public class RaceTrack {
 		while(FinishLine.finishedSimu()==false){
 			tickSimu();
 		}
-		score = calculateScore();
 	    
 	}
 	
