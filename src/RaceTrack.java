@@ -4,15 +4,14 @@ public class RaceTrack {
 	 * DO NOT REMOVE THIS - you should be using this to log this track's events in part B. For more see the assignment PDF / documentation for TrackLoggerA.java
 	 */
 	// private TrackLoggerA logger;
-	public Car[] carList;
-	public RaceCar[] cars;
-	public FormulaOne[] F1cars;
+	public static RaceCar[] cars;
+	public static FormulaOne[] F1cars;
 	public int tick=0;
-	public int numCars;
-	public int ori_numCars;
-	public String out;
-	public String out_2="";
-	public boolean crashed;
+	public static int numCars;
+	public static int ori_numCars;
+	public static String out;
+	public static String out_2="";
+	public static boolean crashed;
 	public int score;
 	public String carsData = "";
 	
@@ -86,7 +85,7 @@ public class RaceTrack {
 		checkfinish();
 	}
 
-	public void checkCollision(int i){
+	public static void checkCollision(int i){
 		for(int j=0;j<numCars;j++){
 			if(cars[j]!=null){
 				if (i!=j&&cars[i].unit==cars[j].unit){
@@ -112,7 +111,7 @@ public class RaceTrack {
 		}
 	}
 	
-	public boolean wentpit(int i){
+	public static boolean wentpit(int i){
 		if(cars[i].last_damaged==true&&cars[i].unit>=75&&cars[i].last_unit<=75){
 			return true;
 		}
