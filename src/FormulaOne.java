@@ -1,5 +1,5 @@
 
-public class FormulaOne extends RaceCar{
+public class FormulaOne extends Car{
 	
 	public FormulaOne(int strength, int speed) {
 		if(speed>70){
@@ -29,7 +29,7 @@ public class FormulaOne extends RaceCar{
 	}
 	
 	public FormulaOne() {
-		super(50,4);
+		this(50,4);
 	}
 	
 	public String toString() {
